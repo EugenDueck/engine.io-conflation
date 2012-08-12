@@ -32,3 +32,8 @@ server.on('flush', createConflater(myConflaterFunction));
 ```
 
 In the example above, myConflaterFunction would make the message 'utf 8 string' be sent to the client in upper case.
+
+# How it works internally #
+---------------------------
+
+`createConflater` returns a function that takes the internal buffer of messages as provided by `engine.io`'s `flush` event. This buffer contains heartbeats and other low-level messages that the actual conflater is neither interested in nor should mess with. `createConflater` then passes only the high-level messages (as sent via `engine.io-client`'s `send(msg)`) to `myConflaterFunction`, so that the latter can work on the level of abstraction that engine.io users normally work on.
