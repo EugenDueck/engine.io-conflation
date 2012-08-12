@@ -13,7 +13,7 @@
     "conflation",
     "aggregation",
     "filtering",
-    "modification",
+    "modification"
   ],
   "devDependencies": {
     "expect.js": "*",
