@@ -17,7 +17,7 @@
   ],
   "devDependencies": {
     "expect.js": "*",
-    "engine.io": "*",
+    "engine.io": "0.2.0",
     "engine.io-client": "*",
     "mocha": "*"
   },

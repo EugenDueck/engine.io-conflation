@@ -1,4 +1,4 @@
-var eio = require('../../engine.io/index')
+var eio = require('engine.io')
   , eioc = require('engine.io-client')
   , expect = require('expect.js')
   , createConflater = require('../main').createConflater;
