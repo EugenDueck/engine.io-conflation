@@ -1,7 +1,7 @@
 engine.io-conflation
 ====================
 
-An engine.io plugin that allows **conflation**, **aggregation**, **modification** and **filtering** of messages just before they get flushed to the socket.
+An [engine.io](https://github.com/LearnBoost/engine.io) plugin that allows **conflation**, **aggregation**, **modification** and **filtering** of messages just before they get flushed to the socket.
 
 This is especially useful to reduce the size of the payload for **slow consumers** that **cannot keep up with the frequency of messages**, say because they have a low bandwidth connection, or low processing power.
 
