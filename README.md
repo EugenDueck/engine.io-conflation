@@ -1,7 +1,7 @@
 engine.io-conflation
 ====================
 
-An [engine.io](https://github.com/LearnBoost/engine.io) plugin that makes **[conflation](http://magmasystems.blogspot.jp/2006/08/conflation.html)**, **aggregation**, **modification** and **filtering** of messages straightforward, especially when it has to based on the client's performance consuming messages from the server.
+`engine.io-conflation` is an [engine.io](https://github.com/LearnBoost/engine.io) plugin that makes **[conflation](http://magmasystems.blogspot.jp/2006/08/conflation.html)**, **aggregation**, **modification** and **filtering** of messages straightforward, especially when it has to based on the client's performance consuming messages from the server.
 
 This is especially useful to reduce the size of the payload for **slow consumers** that **cannot keep up with the frequency of messages**, because of a low bandwidth connection, or low processing power.
 
