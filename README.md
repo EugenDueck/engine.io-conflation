@@ -36,4 +36,4 @@ In the example above, `myConflater` would make the message *'utf 8 string'* be s
 # How it works internally #
 ---------------------------
 
-`createConflater` returns a function that takes the internal buffer of messages as provided by `engine.io`'s `flush` event. This buffer contains heartbeats and other low-level messages that the actual conflater is neither interested in nor should mess with. `createConflater` then passes only the high-level messages (as sent via `socket.send(msg)`) to `myConflater`, so that the latter can work on the level of abstraction that engine.io users normally work on.
+`createConflater` returns a function that takes the internal buffer of messages as provided by `engine.io`'s `flush` event. This buffer may contain heartbeats and other low-level messages that the actual conflater is neither interested in nor should mess with. `createConflater` then passes only the high-level messages (i.e. those sent via `socket.send(msg)`) to `myConflater`, so that the latter can work on the level of abstraction that users of `engine.io` normally work on.
