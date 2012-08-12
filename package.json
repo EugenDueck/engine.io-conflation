@@ -1,7 +1,7 @@
 {
   "name": "engine.io-conflation",
   "version": "0.0.0",
-  "description": "engine.io plugin that makes conflation, aggregation, modification and filtering of messages, based on the client's performance consuming messages from the server, straightforward.",
+  "description": "engine.io plugin that makes conflation, aggregation, alteration and filtering of messages, based on the client's performance consuming messages from the server, straightforward.",
   "main": "main.js",
   "scripts": {
     "test": "make test"
@@ -12,8 +12,7 @@
     "plugin",
     "conflation",
     "aggregation",
-    "filtering",
-    "modification"
+    "filtering"
   ],
   "devDependencies": {
     "expect.js": "*",
