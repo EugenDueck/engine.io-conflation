@@ -41,6 +41,8 @@ In the example above, `myConflater` would make the message *'UTF 8 STRING'* (upp
 # Hacking engine.io-conflation #
 --------------------------------
 
+**Note: The below will only work once `engine.io 0.2.0` is pushed to *registry.npmjs.org*, which is not currently (2012-08-12) the case, but should happen in the next couple of days.**
+
 In case you want to start hacking `engine.io-conflation`, start by making sure that the tests run:
 
 ```
