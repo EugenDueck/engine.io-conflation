@@ -31,7 +31,7 @@ server.on('flush', createConflater(myConflater));
 
 ```
 
-In the example above, `myConflater` would make the message *'UTF 8 STRING'* be sent to the client.
+In the example above, `myConflater` would make the message *'UTF 8 STRING'* (upper case) be sent to the client.
 
 # How it works internally #
 ---------------------------
