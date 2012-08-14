@@ -12,9 +12,9 @@ Your function will then be called every time the buffered array of messages is a
 # Usage #
 ---------
 
-A simple example of how to change all messages to upper case:
+## A simple example that simply changes all messages to upper case ##
 
-```
+```js
 var engine = require('engine.io')
   , server = engine.listen(80)
   , createConflater = require('engine.io-conflation').createConflater;
@@ -33,6 +33,43 @@ server.on('flush', createConflater(myConflater));
 
 In the example above, `myConflater` would make the message *'UTF 8 STRING'* (upper case) be sent to the client.
 
+## A more realistic example that does conflation ##
+```js
+var engine = require('engine.io')
+  , server = engine.listen(80)
+  , createConflater = require('engine.io-conflation').createConflater
+  , symbols = [ 'Wheat', 'Corn', 'Soybeans' ]
+  , randomInt = function(maxInt) { return Math.floor(Math.random() * maxInt); }
+
+function PriceQuote(symbol, price) {
+  this.symbol = symbol;
+  this.price = price;
+}
+// toString() is used by engine.io to serialize the data before sending it
+PriceQuote.prototype.toString = function() { return JSON.stringify(this); }
+
+var keepLastQuoteOnlyConflater = function(quotes) {
+  var lastQuotes = {};
+  for (var i = 0, l = quotes.length; i < l; i++) {
+    lastQuotes[quotes[i].symbol] = quotes[i];
+  }
+  var lastQuotesArray = [];
+  for (var grain in lastQuotes)
+    lastQuotesArray.push(lastQuotes[grain]);
+  return lastQuotesArray;
+}
+
+server.on('connection', function (socket) {
+  while (true) { // generate random price quotes in rapid succession
+    socket.send(new PriceQuote(symbols[randomInt(symbols.length)], 500 + randomInt(50)));
+  }
+});
+
+server.on('flush', createConflater(keepLastQuoteOnlyConflater));
+
+```
+
+With the above conflater, the client will only get the most recent price quotes when it is ready. Quotes that get updated while the client is still processing the current buffer will overwrite previous values which the client will not receive.
 
 # How it works internally #
 ---------------------------
