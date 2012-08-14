@@ -12,7 +12,7 @@ Your function will then be called every time the buffered array of messages is a
 # Usage #
 ---------
 
-## A simple example that simply changes all messages to upper case ##
+## A simple example that changes all messages to upper case ##
 
 ```js
 var engine = require('engine.io')
