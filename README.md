@@ -69,7 +69,7 @@ server.on('flush', createConflater(keepLastQuoteOnlyConflater));
 
 ```
 
-With the above conflater, the client will only get the most recent price quotes when it is ready. Quotes that get updated while the client is still processing the current buffer will overwrite previous values which the client will not receive.
+With the above conflater, the client will only get the most recent price quotes when it is ready. Quotes that *come in* while the client is still processing the current buffer will silently overwrite previous quotes with the same `symbol` key, and the client will not receive those overwritten values.
 
 # How it works internally #
 ---------------------------
